@@ -7,7 +7,11 @@ The Compilation Commands are-
     g++ Writer.c -o Writer -lpthread -lrt
     g++ Reader.c -o Reader -lpthread -lrt
     
-Run ./Writer
+Run 
+
+    ./Writer
 
 Now open another Terminal  by pressing Alt+Ctl+T.
-Run there ./Reader
+Run there 
+
+    ./Reader
