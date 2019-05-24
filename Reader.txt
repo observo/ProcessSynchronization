@@ -1,0 +1,127 @@
+g++ Reader.c -o Reader -lpthread -lrt
+$./Reader
+
+Mutexes-Free: 0 and Full: 9
+Buffer Writing: 0
+ReadPointer: 0 and WritePointer: 0
+Buffer Writing: 0
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 1
+ReadPointer: 1 and WritePointer: 0
+Buffer Writing: 1
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 2
+ReadPointer: 2 and WritePointer: 1
+Buffer Writing: 2
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 3
+ReadPointer: 3 and WritePointer: 2
+Buffer Writing: 3
+
+Mutexes-Free: 2 and Full: 7
+Buffer Writing: 4
+ReadPointer: 4 and WritePointer: 2
+Buffer Writing: 4
+
+Mutexes-Free: 1 and Full: 7
+Buffer Writing: 5
+ReadPointer: 5 and WritePointer: 4
+Buffer Writing: 5
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 6
+ReadPointer: 6 and WritePointer: 5
+Buffer Writing: 6
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 7
+ReadPointer: 7 and WritePointer: 6
+Buffer Writing: 7
+
+Mutexes-Free: 2 and Full: 7
+Buffer Writing: 8
+ReadPointer: 8 and WritePointer: 6
+Buffer Writing: 8
+
+Mutexes-Free: 3 and Full: 6
+Buffer Writing: 9
+ReadPointer: 9 and WritePointer: 6
+Buffer Writing: 9
+
+Mutexes-Free: 2 and Full: 6
+Buffer Writing: 10
+ReadPointer: 0 and WritePointer: 7
+Buffer Writing: 10
+
+Mutexes-Free: 2 and Full: 6
+Buffer Writing: 11
+ReadPointer: 1 and WritePointer: 9
+Buffer Writing: 11
+
+Mutexes-Free: 1 and Full: 7
+Buffer Writing: 12
+ReadPointer: 2 and WritePointer: 0
+Buffer Writing: 12
+
+Mutexes-Free: 1 and Full: 7
+Buffer Writing: 13
+ReadPointer: 3 and WritePointer: 2
+Buffer Writing: 13
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 14
+ReadPointer: 4 and WritePointer: 3
+Buffer Writing: 14
+
+Mutexes-Free: 0 and Full: 8
+Buffer Writing: 15
+ReadPointer: 5 and WritePointer: 4
+Buffer Writing: 15
+
+Mutexes-Free: 1 and Full: 8
+Buffer Writing: 16
+ReadPointer: 6 and WritePointer: 5
+Buffer Writing: 16
+
+Mutexes-Free: 2 and Full: 7
+Buffer Writing: 17
+ReadPointer: 7 and WritePointer: 5
+Buffer Writing: 17
+
+Mutexes-Free: 3 and Full: 6
+Buffer Writing: 18
+ReadPointer: 8 and WritePointer: 5
+Buffer Writing: 18
+
+Mutexes-Free: 4 and Full: 5
+Buffer Writing: 19
+ReadPointer: 9 and WritePointer: 5
+Buffer Writing: 19
+
+Mutexes-Free: 5 and Full: 4
+Buffer Writing: 20
+ReadPointer: 0 and WritePointer: 5
+Buffer Writing: 20
+
+Mutexes-Free: 6 and Full: 3
+Buffer Writing: 21
+ReadPointer: 1 and WritePointer: 5
+Buffer Writing: 21
+
+Mutexes-Free: 7 and Full: 2
+Buffer Writing: 22
+ReadPointer: 2 and WritePointer: 5
+Buffer Writing: 22
+
+Mutexes-Free: 8 and Full: 1
+Buffer Writing: 23
+ReadPointer: 3 and WritePointer: 5
+Buffer Writing: 23
+
+Mutexes-Free: 9 and Full: 0
+Buffer Writing: 24
+ReadPointer: 4 and WritePointer: 5
+Buffer Writing: 24
