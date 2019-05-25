@@ -2,8 +2,8 @@ This is Process Synchronization in C using Reader-Writer Paradigm.
 We have used Shared Memory(/program.shared) and Ring Buffer.
 Good Software requires to understand Lock and Synchronization very well.
 
-
-We have not handled Race and Deadlock since this is a Single Reader, Single Writer arrangement.
+Usually we need to Protect Data. If Multiple Processes of Same Types(Readers/Writers), we need to Protect Code too.
+We have not Handled Race and Deadlock since this is a Single Reader, Single Writer arrangement.
 Race happens on same side(Multiple Readers or Multiple Writers).
 Deadlock happens on any side or both sides.
 As there is no Deadlock Handling, we have not identified Critical Section or Mutual Exclusion.
