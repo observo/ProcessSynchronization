@@ -1,5 +1,8 @@
 This is Process Synchronization in C using Reader-Writer Paradigm.
 We have used Shared Memory(/program.shared) and Ring Buffer.
+Good Software requires to understand Lock and Synchronization very well.
+See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
+
 
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
 The Compilation Commands are-
