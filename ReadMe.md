@@ -5,7 +5,7 @@ See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
 
 The aaa.txt has No Header.
 The ccc.txt has Header.
-The xaa.txt has Header.
+The xaa has Header.
 
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
 The Compilation Commands are-
@@ -17,7 +17,7 @@ For Whole File Copying-
     
 Run 
 
-    ./Writer aaa.txt
+    ./Writer ../Files/aaa.txt
 
     
 Or for Header Skipping Copying-
@@ -28,9 +28,9 @@ Or for Header Skipping Copying-
     
 Run 
 
-    ./Writer ccc.txt or ./Writer xaa.txt
+    ./Writer ../Files/ccc.txt or ./Writer ../Files/xaa
 
 Now open another Terminal  by pressing Alt+Ctl+T.
 Run there-
 
-    ./Reader bbb.txt
+    ./Reader ../Files/bbb.txt
