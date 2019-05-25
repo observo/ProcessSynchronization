@@ -1,0 +1,34 @@
+AIRBUS GNSS:
+Header version: 1.0
+Receiver name: GERTS
+Firmware version: 1.0
+No. Channels: 1
+Sample rate: 51.2 Msps
+Channel bandwidth: 30 MHz
+Frequency band: L1
+Bitwidth: 4
+IQ order: IQ
+Raw samples: true
+Timestamp: 2019-04-05 15:17:44.781680
+Comment: This is a file for testing the core receiver acquisition function. This is the RTFC-1 file
+END:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
