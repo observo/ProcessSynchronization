@@ -3,6 +3,8 @@ We have used Shared Memory(/program.shared) and Ring Buffer.
 Good Software requires to understand Lock and Synchronization very well.
 See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
 
+These Programs will run on Linux and Mac. We have checked on Linux Ubuntu Distribution.
+
 The aaa.txt has No Header.
 The ccc.txt has Header.
 The xaa has Header.
