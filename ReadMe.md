@@ -8,6 +8,9 @@ The ccc.txt has Header.
 The xaa has Header.
 
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
+
+Go to Code Directory.
+
 The Compilation Commands are-
 For Whole File Copying-
 
