@@ -1,13 +1,18 @@
 This is Process Synchronization in C using Reader-Writer Paradigm.
 We have used Shared Memory(/program.shared) and Ring Buffer.
 Good Software requires to understand Lock and Synchronization very well.
-For a Detail Description See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
+
+
 We have not handled Race and Deadlock since this is a Single Reader, Single Writer arrangement.
 Race happens on same side(Multiple Readers or Multiple Writers).
 Deadlock happens on any side or both sides.
 As there is no Deadlock Handling, we have not identified Critical Section or Mutual Exclusion.
 Critical Section is basically Protecting Code from Multiple Accesses Simultaneously.
 Only One Process can enter into Critical Section and this is called Mutual Exclusion.
+
+
+For a Detail Description See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
+
 
 These Programs will run on Linux and Mac. We have checked on Linux Ubuntu Distribution.
 
