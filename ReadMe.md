@@ -26,13 +26,14 @@ Run
 Or for Header Skipping Copying-
 
     
-    g++ AfterHeaderWriter.c -o Writer -lpthread -lrt
+    g++ HeaderSkippingWriter.c -o Writer -lpthread -lrt
     g++ Reader.c -o Reader -lpthread -lrt
     
 Run 
 
     ./Writer ../Files/ccc.txt or ./Writer ../Files/xaa
 
+The Reader is same for both types of Writing.    
 Now open another Terminal  by pressing Alt+Ctl+T.
 Run there-
 
