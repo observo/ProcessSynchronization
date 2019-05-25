@@ -27,17 +27,19 @@ int main(int argc, char* argv[]){
         int BufferSize=2;//EXPERIMENATION
         unsigned char Buf[BufferSize];
         int BufferCount=0;
+        int NumberOfFileBuffers=0;
+        long long FilePosition=0;
+        long long FileSize=0;
+        long long CopyableMemorySize=0;
         
         //LINE HANDLING VARIABLES
+        int KeyCount=0;
         int ENDPresent=0;
         char Line[128];
-        long FilePosition=0;
         char KVSeparator[]=":";
         int LineCount=0;
         const char* Keys[]={"AIRBUS GNSS", "Header version", "Receiver name", "Firmware version", "No. Channels", "Sample rate", "Channel bandwidth", "Frequency band", "Bitwidth", "IQ order", "Raw samples", "Timestamp", "Comment", "END"};
             
-        //SET THE FILE POINTER AT THE VERY BEGINNING OF THE FILE
-        fseek(FP, 0, SEEK_SET);
         char Delimeter=':';
         
         SD= shm_open("/program.shared", O_RDWR|O_CREAT, S_IREAD|S_IWRITE);
@@ -59,6 +61,7 @@ int main(int argc, char* argv[]){
             if(FP!= NULL){
                 //READ LINES
                 while((fgets(Line, sizeof(Line), FP)!= NULL)&& (LineCount<20)){
+                    printf("\n%s", Line);
                     LineCount++;
                     char* Position=strchr(Line, ':');
                     if(Position!=NULL){
@@ -79,31 +82,30 @@ int main(int argc, char* argv[]){
                             i++;
                         }
                     }
-                    
-                    //fputs(Splice, stdout);
-                    
-                    //CHECK VALID FILE
-                    if(KeyCount>0 && ENDPresent){
-                        printf("\n%s", "This is a valid file.");
-                        long long FilePosition=ftell(FP);
-                        printf("\n%ld", FilePosition);
-                        struct stat StatBuf;
-                        if(stat(FileName, &StatBuf)==-1){
-                            printf("failed to fstat %s\n", FileName);
-                            exit(EXIT_FAILURE);
-                        }
-                        long long FileSize=StatBuf.st_size;
-                        printf("\n File Size: %lld", FileSize);
-                        long long CopyableMemorySize=FileSize-FilePosition;
-                        printf("\nCopyable File Size: %lld", CopyableMemorySize);
-                        int NumberOfFileBuffers=ceil(CopyableMemorySize/BufferSize);
-                        printf("\nNumber Of File Buffers: %d\n", NumberOfFileBuffers);
-                    }else{
-                         printf("\n%s", "\nThis is an Invalid File.");
-                         exit(0);
-                    }
                 }
-                
+                //fputs(Splice, stdout);
+                    
+                //CHECK VALID FILE
+                if(KeyCount>0 && ENDPresent){
+                    printf("\n%s", "This is a valid file.");
+                    FilePosition=ftell(FP);
+                        
+                    struct stat StatBuf;
+                    if(stat(FileName, &StatBuf)==-1){
+                        printf("failed to fstat %s\n", FileName);
+                        exit(EXIT_FAILURE);
+                    }
+                    FileSize=StatBuf.st_size;
+                    printf("\n File Size: %lld", FileSize);
+                    CopyableMemorySize=FileSize-FilePosition;
+                    printf("\nCopyable File Size: %lld", CopyableMemorySize);
+                    NumberOfFileBuffers=ceil(CopyableMemorySize/BufferSize);
+                    printf("\nNumber Of File Buffers: %d\n", NumberOfFileBuffers);
+                }else{
+                    printf("\n%s\n", "This is an Invalid File.");
+                    exit(0);
+                }
+                                
                 //INITIALIZATION
                 sem_init(&M->FullMutex, 1, 0);
                 sem_init(&M->FreeMutex, 1, NumberOfBuffers);
@@ -115,7 +117,9 @@ int main(int argc, char* argv[]){
                 //WRITE
                 while(1){
                     sem_wait(&M->FreeMutex);
-                    fseek(FP, BufferCount*BufferSize+FilePosition, SEEK_SET);
+                    long long Position=BufferCount*BufferSize+FilePosition;
+                    printf("Position:%lld", Position);
+                    fseek(FP, Position, SEEK_SET);
                     fread(Buf, sizeof(unsigned char), BufferSize, FP);
                     int FreeMutexValue;
                     sem_getvalue(&M->FreeMutex, &FreeMutexValue);

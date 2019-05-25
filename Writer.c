@@ -26,6 +26,10 @@ int main(int argc, char* argv[]){
         int BufferSize=2;//EXPERIMENATION
         unsigned char Buf[BufferSize];
         int BufferCount=0;
+        int NumberOfFileBuffers=0;
+        long long FilePosition=0;
+        long long FileSize=0;
+        long long CopyableMemorySize=0;
 
         SD= shm_open("/program.shared", O_RDWR|O_CREAT, S_IREAD|S_IWRITE);
         if(SD< 0){
@@ -49,11 +53,11 @@ int main(int argc, char* argv[]){
                     printf("failed to fstat %s\n", FileName);
                     exit(EXIT_FAILURE);
                 }
-                long long FileSize=StatBuf.st_size;
+                FileSize=StatBuf.st_size;
                 printf("\nFile Size: %lld", FileSize);
-                long long FilePosition=ftell(FP);
                 FilePosition=ftell(FP);
-                long long CopyableMemorySize=FileSize-FilePosition;
+                FilePosition=ftell(FP);
+                CopyableMemorySize=FileSize-FilePosition;
                 printf("\nCopyable File Size: %lld", CopyableMemorySize);
                 int NumberOfFileBuffers=ceil(CopyableMemorySize/BufferSize);
                 printf("\nNumber Of File Buffers: %d\n", NumberOfFileBuffers);
