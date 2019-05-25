@@ -6,8 +6,17 @@ See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
 
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
 The Compilation Commands are-
+For Whole File Copying-
 
+ 
     g++ Writer.c -o Writer -lpthread -lrt
+    g++ Reader.c -o Reader -lpthread -lrt
+    
+    
+Or for Header Skipping Copying-
+
+    
+    g++ AfterHeaderWriter.c -o Writer -lpthread -lrt
     g++ Reader.c -o Reader -lpthread -lrt
     
 Run 
