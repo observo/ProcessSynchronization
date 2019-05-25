@@ -9,9 +9,9 @@ The Compilation Commands are-
     
 Run 
 
-    ./Writer
+    ./Writer aaa.txt
 
 Now open another Terminal  by pressing Alt+Ctl+T.
 Run there 
 
-    ./Reader
+    ./Reader bbb.txt
