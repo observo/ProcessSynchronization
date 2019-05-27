@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
+#define SHARED_MEMORY_SIZE 536870912
 #define BUFFER_SIZE 16384
 
 int main(int argc, char* argv[]){
@@ -23,8 +24,8 @@ int main(int argc, char* argv[]){
         };
         int SD;
         struct MemData *M;
-        int NumberOfBuffers=10;
         int BufferSize=BUFFER_SIZE;
+        int NumberOfBuffers=SHARED_MEMORY_SIZE/BUFFER_SIZE;
         int BufferCount=0;
         
         SD= shm_open("/program.shared", O_RDWR|O_CREAT, S_IREAD|S_IWRITE);
