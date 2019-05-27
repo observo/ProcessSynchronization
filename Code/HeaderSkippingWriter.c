@@ -26,8 +26,8 @@ int main(int argc, char* argv[]){
         };
         int SD;
         struct MemData *M;
-        int NumberOfBuffers=SHARED_MEMORY_SIZE/BUFFER_SIZE;
         int BufferSize=BUFFER_SIZE;
+        int NumberOfBuffers=SHARED_MEMORY_SIZE/BUFFER_SIZE;
         unsigned char Buf[BufferSize];
         int BufferCount=0;
         int NumberOfFileBuffers=0;

@@ -8,6 +8,9 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
+#define SHARED_MEMORY_SIZE 536870912
+#define BUFFER_SIZE 16384
+
 int main(int argc, char* argv[]){
     if(argc==2){
         char* FileName=argv[1];
@@ -17,13 +20,12 @@ int main(int argc, char* argv[]){
             int ReadPointer;
             int WritePointer;
             int NumberOfFileBuffers;
-            char Data[512000];//MEMORY BLOCK SIZE: 500 KB
+            char Data[SHARED_MEMORY_SIZE];//MEMORY BLOCK SIZE: 500 KB
         };
         int SD;
         struct MemData *M;
-        int NumberOfBuffers=10;
-        //int BufferSize=51200;//FILE BUFFER SIZE 50 KB
-        int BufferSize=2;//EXPERIMENATION
+        int BufferSize=BUFFER_SIZE;
+        int NumberOfBuffers=SHARED_MEMORY_SIZE/BUFFER_SIZE;
         unsigned char Buf[BufferSize];
         int BufferCount=0;
         int NumberOfFileBuffers=0;
