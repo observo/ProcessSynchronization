@@ -21,7 +21,7 @@ The ccc.txt has Header.
 The xaa has Header.
 
 
-Define SHARED_MEMORY_SIZE and BUFFER_SIZE as per your requirements.
+Define SHARED_MEMORY_SIZE and BUFFER_SIZE as per your requirements in Programming Source Files.
 
 
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
