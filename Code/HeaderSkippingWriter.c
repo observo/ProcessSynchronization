@@ -145,7 +145,7 @@ int main(int argc, char* argv[]){
             close(SD);
         }
     }else{
-        printf("\nThe Usage Command: %s", "./Writer aaa.txt");
+        printf("\nThe Usage Command: %s", "./Writer FileName");
     }
     return 0;
 }
