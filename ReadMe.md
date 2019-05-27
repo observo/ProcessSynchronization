@@ -20,6 +20,10 @@ The aaa.txt has No Header.
 The ccc.txt has Header.
 The xaa has Header.
 
+
+Define SHARED_MEMORY_SIZE and BUFFER_SIZE as per your requirements.
+
+
 Open a Terminal in Linux(Ubuntu) by pressing Alt+Ctl+T.
 
 Go to Code Directory.
