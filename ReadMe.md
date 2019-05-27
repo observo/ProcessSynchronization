@@ -37,7 +37,7 @@ For Whole File Copying-
     
 Run 
 
-    ./Writer ../Files/aaa.txt
+    ./Writer FileName(Give the Right Path)
 
     
 Or for Header Skipping Copying-
@@ -48,10 +48,10 @@ Or for Header Skipping Copying-
     
 Run 
 
-    ./Writer ../Files/ccc.txt or ./Writer ../Files/xaa
+    ./Writer FileName(Give the Right Path)
 
 The Reader is same for both types of Writing.    
 Now open another Terminal  by pressing Alt+Ctl+T.
 Run there-
 
-    ./Reader ../Files/bbb.txt
+    ./Reader FileName(Give the Right Path)
