@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
+#define BUFFER_SIZE 16384
+
 int main(int argc, char* argv[]){
     if(argc==2){
         char* FileName=argv[1];
@@ -22,10 +24,9 @@ int main(int argc, char* argv[]){
         int SD;
         struct MemData *M;
         int NumberOfBuffers=10;
-        //int BufferSize=51200;//FILE BUFFER SIZE 50 KB
-        int BufferSize=2;//EXPERIMENATION
-        //unsigned char Buf[BufferSize];
+        int BufferSize=BUFFER_SIZE;
         int BufferCount=0;
+        
         SD= shm_open("/program.shared", O_RDWR|O_CREAT, S_IREAD|S_IWRITE);
         if(SD< 0){
             printf("\nshm_open() error \n");
