@@ -23,7 +23,6 @@ int main(int argc, char* argv[]){
         };
         int SD;
         struct MemData *M;
-        int NumberOfBuffers=10;
         //int BufferSize=51200;//FILE BUFFER SIZE 50 KB
         //int BufferSize=2;//EXPERIMENATION
         int BufferSize=16384;
@@ -110,7 +109,7 @@ int main(int argc, char* argv[]){
                                 
                 //INITIALIZATION
                 sem_init(&M->FullMutex, 1, 0);
-                sem_init(&M->FreeMutex, 1, NumberOfBuffers);
+                sem_init(&M->FreeMutex, 1, NumberOfFileBuffers);
                 M->ReadPointer=0;
                 M->WritePointer=0;
                 M->NumberOfFileBuffers=NumberOfFileBuffers;
@@ -132,7 +131,7 @@ int main(int argc, char* argv[]){
                     memcpy(&M->Data[M->WritePointer*BufferSize], Buf, BufferSize);
                     BufferCount++;
                     M->WritePointer=(M->WritePointer+1)%NumberOfBuffers;
-                    sleep(0.03);
+                    sleep(0.03);// WAIT, UNNECESSARY THOUGH
                     sem_post(&M->FullMutex);      
                     if(BufferCount==M->NumberOfFileBuffers){
                         fclose(FP);
