@@ -67,7 +67,7 @@ int main(int argc, char* argv[]){
             close(SD);
         }
     }else{
-        printf("\nThe Usage Command: %s", "./Reader bbb.txt");
+        printf("\nThe Usage Command: %s", "./Reader FileName");
     }
     return 0;
 }
