@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
             int ReadPointer;
             int WritePointer;
             int NumberOfFileBuffers;
-            char Data[512000];//MEMORY BLOCK SIZE: 500 KB
+            char Data[SHARED_MEMORY_SIZE];//MEMORY BLOCK SIZE: 500 KB
         };
         int SD;
         struct MemData *M;
