@@ -18,13 +18,15 @@ int main(int argc, char* argv[]){
             int ReadPointer;
             int WritePointer;
             int NumberOfFileBuffers;
-            char Data[512000];//MEMORY BLOCK SIZE: 500 KB
+            //char Data[512000];//MEMORY BLOCK SIZE: 500 KB
+            char Data[536870912];
         };
         int SD;
         struct MemData *M;
         int NumberOfBuffers=10;
         //int BufferSize=51200;//FILE BUFFER SIZE 50 KB
-        int BufferSize=2;//EXPERIMENATION
+        //int BufferSize=2;//EXPERIMENATION
+        int BufferSize=16384;
         unsigned char Buf[BufferSize];
         int BufferCount=0;
         int NumberOfFileBuffers=0;
@@ -130,6 +132,7 @@ int main(int argc, char* argv[]){
                     memcpy(&M->Data[M->WritePointer*BufferSize], Buf, BufferSize);
                     BufferCount++;
                     M->WritePointer=(M->WritePointer+1)%NumberOfBuffers;
+                    sleep(0.03);
                     sem_post(&M->FullMutex);      
                     if(BufferCount==M->NumberOfFileBuffers){
                         fclose(FP);
