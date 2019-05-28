@@ -64,6 +64,7 @@ int main(int argc, char* argv[]){
                 }
             }else{
                 printf("\n%s", "Please Give the Right Path Name.");
+                close(SD);
                 exit(0);
             }
             munmap(M,sizeof(struct MemData));
