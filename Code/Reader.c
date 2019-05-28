@@ -40,7 +40,6 @@ int main(int argc, char* argv[]){
         }else{
             FILE *FP= fopen(FileName, "wb");
             if(FP!= NULL){
-                
                 //READ
                 while(1){
                     sem_wait(&M->FullMutex);
@@ -63,6 +62,9 @@ int main(int argc, char* argv[]){
                     }
                     //sem_post(&M->FreeMutex);
                 }
+            }else{
+                printf("\n%s", "Please Give the Right Path Name.");
+                exit(0);
             }
             munmap(M,sizeof(struct MemData));
             close(SD);
