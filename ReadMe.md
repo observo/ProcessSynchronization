@@ -14,7 +14,7 @@ Only One Process can enter into Critical Section and this is called Mutual Exclu
 For a Detail Description See http://web.mit.edu/6.031/www/sp19/classes/21-locks/
 
 
-The HeaderSkippingWriter uses Time Waiting.
+The HeaderSkippingWriter.c uses Time Waiting.
 
 
 These Programs will run on Linux and Mac. We have checked on Linux Ubuntu Distribution.
