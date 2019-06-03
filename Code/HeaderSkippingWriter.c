@@ -4,6 +4,7 @@
 #include <math.h>
 #include <semaphore.h>
 #include <fcntl.h>
+#include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
@@ -12,9 +13,11 @@
 #define BUFFER_SIZE 16384
 
 int main(int argc, char* argv[]){
+    clock_t Begin=clock();
     if(argc==2){
         char* FileName=argv[1];
         if(access(FileName, F_OK)!= -1){
+            double TimeAlloted=30.00;
             //SHARED MEMORY HANDLING VARIABLES
             struct MemData{
                 sem_t FullMutex;
@@ -134,7 +137,7 @@ int main(int argc, char* argv[]){
                         memcpy(&M->Data[M->WritePointer*BufferSize], Buf, BufferSize);
                         BufferCount++;
                         M->WritePointer=(M->WritePointer+1)%NumberOfBuffers;
-                        sleep(0.03);
+                        usleep(1000*0.03);
                         sem_post(&M->FullMutex);      
                         if(BufferCount==M->NumberOfFileBuffers){
                             fclose(FP);
@@ -145,6 +148,14 @@ int main(int argc, char* argv[]){
                 }
                 close(SD);
             }
+            clock_t End=clock();
+            double TimeSpent=(double)(End-Begin)/CLOCKS_PER_SEC;
+            double TimeRemaining=TimeAlloted-TimeSpent;
+            if(TimeRemaining>0.00){
+                usleep(1000*TimeRemaining);
+                printf("\n%s", "The Program is waiting to complete its execution.");
+            }
+            printf("\n%s", "The Program has completed its execution.");
         }else{
             printf("\n%s", "Please Give the Right Path Name.");
             exit(0);
